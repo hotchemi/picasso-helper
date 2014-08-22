@@ -10,14 +10,6 @@ import helper.picasso.PicassoHelper;
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
-        PicassoHelper.getInstance()
-                .setMaxAge(0)
-                .setMaxSize(0)
-                .with(getContext())
-                .load(null)
-                .fit()
-                .into(null);
-
         super(Application.class);
     }
 }
