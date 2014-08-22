@@ -32,7 +32,7 @@ import static com.squareup.picasso.Utils.parseResponseSourceHeader;
  * of the total available space will be used (capped at 50MB) will automatically be installed in the
  * application's cache directory, when available.
  */
-public class UrlConnectionDownloader implements Downloader {
+public class UrlConnectionDownloaderWithSetting implements Downloader {
 
     static final String RESPONSE_SOURCE = "X-Android-Response-Source";
 
@@ -80,7 +80,7 @@ public class UrlConnectionDownloader implements Downloader {
         this.maxAge = maxAge;
     }
 
-    public UrlConnectionDownloader(Context context) {
+    public UrlConnectionDownloaderWithSetting(Context context) {
         this.context = context.getApplicationContext();
     }
 

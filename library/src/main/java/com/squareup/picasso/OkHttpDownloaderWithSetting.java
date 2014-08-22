@@ -31,7 +31,7 @@ import static com.squareup.picasso.Utils.parseResponseSourceHeader;
 /**
  * A {@link com.squareup.picasso.Downloader} which uses OkHttp to download images.
  */
-public class OkHttpDownloader implements Downloader {
+public class OkHttpDownloaderWithSetting implements Downloader {
 
     static final String RESPONSE_SOURCE_ANDROID = "X-Android-Response-Source";
 
@@ -62,7 +62,7 @@ public class OkHttpDownloader implements Downloader {
      * Create new downloader that uses OkHttp. This will install an image cache into your application
      * cache directory.
      */
-    public OkHttpDownloader(final Context context) {
+    public OkHttpDownloaderWithSetting(final Context context) {
         this(Utils.createDefaultCacheDir(context));
     }
 
@@ -72,7 +72,7 @@ public class OkHttpDownloader implements Downloader {
      *
      * @param cacheDir The directory in which the cache should be stored
      */
-    public OkHttpDownloader(final File cacheDir) {
+    public OkHttpDownloaderWithSetting(final File cacheDir) {
         this(cacheDir, Utils.calculateDiskCacheSize(cacheDir));
     }
 
@@ -82,7 +82,7 @@ public class OkHttpDownloader implements Downloader {
      *
      * @param maxSize The size limit for the cache.
      */
-    public OkHttpDownloader(final Context context, final long maxSize) {
+    public OkHttpDownloaderWithSetting(final Context context, final long maxSize) {
         this(Utils.createDefaultCacheDir(context), maxSize);
     }
 
@@ -93,7 +93,7 @@ public class OkHttpDownloader implements Downloader {
      * @param cacheDir The directory in which the cache should be stored
      * @param maxSize  The size limit for the cache.
      */
-    public OkHttpDownloader(final File cacheDir, final long maxSize) {
+    public OkHttpDownloaderWithSetting(final File cacheDir, final long maxSize) {
         this(new OkHttpClient());
         try {
             urlFactory.client().setCache(new com.squareup.okhttp.Cache(cacheDir, maxSize));
@@ -105,7 +105,7 @@ public class OkHttpDownloader implements Downloader {
      * Create a new downloader that uses the specified OkHttp instance. A response cache will not be
      * automatically configured.
      */
-    public OkHttpDownloader(OkHttpClient client) {
+    public OkHttpDownloaderWithSetting(OkHttpClient client) {
         this.urlFactory = new OkUrlFactory(client);
     }
 
